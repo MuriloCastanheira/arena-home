@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="my_robot">
+    <static>true</static>
+
+    <!-- Links -->
+    <link name="base_link"/>
+    
+    <link name="link_floor">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/floor_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+        <material>
+          <ambient>0.4 0.4 0.4 1.0</ambient>
+          <diffuse>0.4 0.4 0.4 1.0</diffuse>  <!-- Gray -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <link name="link_grey">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/grey_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>  <!-- Gray -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <link name="link_white">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/white_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+        <material>
+          <ambient>0.99 0.98 0.97 1.0</ambient>
+          <diffuse>0.99 0.98 0.97 1.0</diffuse>
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <link name="link_black">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/black_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1.0</ambient>
+          <diffuse>0.05 0.05 0.05 1.0</diffuse>  <!-- Dark Gray -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <link name="link_pilar">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/pilar_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>  <!-- Gray -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <link name="link_wall">
+      <visual name="base_visual">
+        <geometry>
+          <plane>
+            <normal>0 1 0</normal>  <!-- Isso define a orientação do plano. Pode tentar [0 -1 0] -->
+            <size>10 2.6</size>
+          </plane>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0.4 0.4 0.4 1</specular>
+          <pbr>
+            <metal>
+             <albedo_map>materials/textures/parede.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+    <pose> -5 0 1.3 0 3.14 0</pose> <!-- Posição e rotação (x y z roll pitch yaw) -->
+    </link>
+
+
+    <!-- Joints -->
+    <joint name="joint_floor" type="fixed">
+      <parent>base_link</parent>
+      <child>link_floor</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_grey" type="fixed">
+      <parent>base_link</parent>
+      <child>link_grey</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_white" type="fixed">
+      <parent>base_link</parent>
+      <child>link_white</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_black" type="fixed">
+      <parent>base_link</parent>
+      <child>link_black</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_pilar" type="fixed">
+      <parent>base_link</parent>
+      <child>link_pilar</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_wall" type="fixed">
+      <parent>base_link</parent>
+      <child>link_wall</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+  </model>
+</sdf>
