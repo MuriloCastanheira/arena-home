@@ -155,8 +155,8 @@
           <mesh><uri>meshes/lixeira_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
         </geometry>
           <material>
-            <ambient>0.043 0.157 0.188 1.0</ambient>
-            <diffuse>0.043 0.157 0.188 1.0</diffuse>  <!-- Azul petróleo muito escuro -->
+            <ambient>0.2 0.2 0.2 1.0</ambient>
+            <diffuse>0.2 0.2 0.2 1.0</diffuse>  <!-- Azul acinzentado escuro -->
             <specular>0.5 0.5 0.5 1.0</specular>
           </material>
       </visual>
@@ -169,8 +169,8 @@
           <mesh><uri>meshes/lixeira_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
         </geometry>
           <material>
-            <ambient>0.043 0.157 0.188 1.0</ambient>
-            <diffuse>0.043 0.157 0.188 1.0</diffuse>  <!-- Azul petróleo muito escuro -->
+            <ambient>0.2 0.2 0.2 1.0</ambient>
+            <diffuse>0.2 0.2 0.2 1.0</diffuse>  <!-- Azul acinzentado escuro -->
             <specular>0.5 0.5 0.5 1.0</specular>
           </material>
       </visual>
@@ -203,7 +203,7 @@
             <specular>0.5 0.5 0.5 1.0</specular>
           </material>
       </visual>
-      <pose> 0 0 0.03 0 0 0</pose>
+      <pose> 0 0 0.0 0 0 0</pose>
     </link>
 
 
@@ -218,7 +218,7 @@
             <specular>0.5 0.5 0.5 1.0</specular>
           </material>
       </visual>
-      <pose> 0 0 0.03 0 0 0</pose>
+      <pose> 0 0 0.0 0 0 0</pose>
     </link>
 
     <link name="link_cadeiras">
@@ -232,7 +232,7 @@
             <specular>0.5 0.5 0.5 1.0</specular>
           </material>
       </visual>
-      <pose> 0 0 0.03 0 0 0</pose>
+      <pose> 0 0 0.0 0 0 0</pose>
     </link>
 
     <link name="link_mesa_jantar">
@@ -241,12 +241,69 @@
           <mesh><uri>meshes/mesa_janta_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
         </geometry>
           <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>  <!-- Gray -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+      <pose> 0 0 0.03 0 0 0</pose>
+    </link>
+
+
+    <link name="link_geladeira">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/geladeira_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+          <material>
+          <ambient>0.99 0.98 0.97 1.0</ambient>
+          <diffuse>0.99 0.98 0.97 1.0</diffuse>
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+      <pose> 0 0 0.0 0 0 0</pose>
+    </link>
+
+    <link name="link_tabua">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/tabua_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+          <material>
             <ambient>0.447 0.243 0.000 1.0</ambient>
             <diffuse>0.447 0.243 0.000 1.0</diffuse>  <!-- Marrom alaranjado escuro -->
             <specular>0.5 0.5 0.5 1.0</specular>
           </material>
       </visual>
-      <pose> 0 0 0.03 0 0 0</pose>
+      <pose> 0 0 0.0 0 0 0</pose>
+    </link>
+
+    <link name="link_lava">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/lava_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->
+        </geometry>
+          <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>  <!-- Gray -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+      <pose> 0 0 0.0 0 0 0</pose>
+    </link>
+
+    <link name="link_muro">
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>meshes/muro_part.stl</uri></mesh> <!-- Corrigido caminho do modelo -->  
+        </geometry>
+        <material>
+            <ambient>0.2 0.2 0.2 1.0</ambient>
+            <diffuse>0.2 0.2 0.2 1.0</diffuse>  <!-- Azul acinzentado escuro -->
+            <specular>0.5 0.5 0.5 1.0</specular>
+          </material>
+      </visual>
+      <pose> 0 0 0.0 0 0 0</pose>
     </link>
 
 
@@ -354,6 +411,29 @@
       <pose>0 0 0 0 0 0</pose>
     </joint>
 
+    <joint name="joint_geladeira" type="fixed">
+      <parent>base_link</parent>
+      <child>link_geladeira</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_tabua" type="fixed">
+      <parent>base_link</parent>
+      <child>link_tabua</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_lava" type="fixed">
+      <parent>base_link</parent>
+      <child>link_lava</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="joint_muro" type="fixed">
+      <parent>base_link</parent>
+      <child>link_muro</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
 
 
 
